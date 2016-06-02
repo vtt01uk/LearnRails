@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= content_for? (:title) ? yield(:title) : "LearnRails" %></title>
-  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Learn Rails" %> ">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "Learn Rails" %></title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Learn Rails" %>">
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <% # Modernizr is required for Zurb Foundation 4 %>
+  <%= javascript_include_tag "vendor/custom.modernizr" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -13,9 +15,8 @@
     <%= render 'layouts/navigation' %>
   </header>
   <main role="main">
-    <%= render 'layouts/messages' %>    
+    <%= render 'layouts/messages' %>
     <%= yield %>
   </main>
-
 </body>
 </html>
